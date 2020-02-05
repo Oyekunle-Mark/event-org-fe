@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
-interface Event {
+export interface Event {
     creator: string;
     title: string;
     description: Date;
@@ -12,9 +12,15 @@ interface Event {
 const URL = "https://events-man.herokuapp.com/";
 
 export class EventService {
-    public async getEvents(): Promise<Event[]> {
-        const events = (await axios.get(URL));
+    public async getEvents(): Promise<AxiosResponse<any>> {
+        const response = await axios.get(URL);
 
-        return events.data;
+        return response;
+    }
+
+    public async createEvents(event: Event): Promise<AxiosResponse<any>> {
+        const response = await axios.post(URL, event)
+
+        return response;
     }
 }
