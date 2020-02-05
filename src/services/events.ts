@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 interface Event {
     creator: string;
     title: string;
@@ -7,8 +9,12 @@ interface Event {
     daysActive: Date[];
 }
 
-export class EventService {
-    private events: Event[];
+const URL = "https://events-man.herokuapp.com/";
 
-    constructor() { }
+export class EventService {
+    public async getEvents(): Promise<Event[]> {
+        const events = (await axios.get(URL));
+
+        return events.data;
+    }
 }
