@@ -6,3 +6,9 @@ interface Event {
     isFree: boolean;
     daysActive: Date[];
 }
+
+export class EventService {
+    private events: Event[];
+
+    constructor() { }
+}
