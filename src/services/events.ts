@@ -23,4 +23,10 @@ export class EventService {
 
         return response;
     }
+
+    public async updateEvents(event: Event, id: number): Promise<AxiosResponse<any>> {
+        const response = await axios.put(`URL/${id}`, event)
+
+        return response;
+    }
 }
