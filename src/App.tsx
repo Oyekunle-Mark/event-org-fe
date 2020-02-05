@@ -1,9 +1,14 @@
 import React from 'react';
 
+import { EventService } from './services/events';
+import EventScreen from './components/EventScreen';
+
 const App = () => {
+  const event = new EventService();
+
   return (
-    <div className="App">
-      <header className="App-header">Learn React</header>
+    <div>
+      <EventScreen event={event} />
     </div>
   );
 };
